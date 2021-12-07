@@ -154,7 +154,7 @@ export function FormAddStudent() {
               setCEP(event.target.value);
             }}
             className={styles.typedInput}
-            placeholder="0000-00"
+            placeholder="00.000-000"
             required
           />
         </div>
