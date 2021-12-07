@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.articleContainer {
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+  height: 100%;
+  padding: 5rem;
+  background-color: var(--secondary);
+  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.articleContainer a {
+  align-self: flex-start;
+}
+
+.title {
+  font-size: 3.4rem;
+  margin-bottom: 5rem;
+  color: var(--font);
+}
+
+.description {
+  margin-bottom: 5rem;
+  font-size: 2rem;
+  text-align: justify;
+  color: var(--font);
+  filter: opacity(0.8);
+}
+
+/* image */
+.imgContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeImg {
+  object-fit: cover;
+  height: 60rem;
+  width: 70rem;
+}

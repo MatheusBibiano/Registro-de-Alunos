@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-self: center;
+
+  width: 50vw;
+}
+
+.container button {
+  align-self: flex-start;
+}
+
+.title {
+  align-self: center;
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--font);
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px var(--font);
+  border-radius: 2px;
+  margin-right: 2rem;
+}
+
+.previewImg {
+  object-fit: cover;
+  width: 20rem;
+  height: 20rem;
+}
+
+fieldset {
+  display: flex;
+  border: none;
+  margin: 1rem 0;
+  flex-direction: column;
+}
+
+.identityField {
+  flex-direction: row;
+}
+
+/* Image selector */
+.imgSelectorContianer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  background-color: var(--primary);
+  color: var(--font);
+  border-top: solid 1px var(--font);
+  font-size: 1.4rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.imgSelector {
+  width: 20rem;
+  position: absolute;
+  color: transparent;
+  cursor: pointer;
+}
+
+.imgSelector::file-selector-button {
+  width: 20rem;
+  height: 4.5rem;
+  background-color: transparent;
+  border: none;
+  color: transparent;
+  cursor: pointer;
+}
+
+.addressField {
+  padding-top: 1.5rem;
+  border-top: solid 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Typed inputs */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  background-color: var(--secondary);
+  border: solid 0.1rem rgba(0, 0, 0, 0.02);
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.09);
+}
+
+.inputContainer:focus-within {
+  border: solid 0.1rem var(--primary);
+}
+
+.typedInputLabel {
+  font-size: 1.6rem;
+  color: var(--font);
+  background-color: transparent;
+  border-radius: 2px 2px 0 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.typedInput {
+  padding: 0 1rem 1rem 1rem;
+  font-size: 1.6rem;
+  color: var(--font);
+  background-color: transparent;
+  border-radius: 0 0 2px 2px;
+  border: none;
+  outline: none;
+}
+
+.inputContainer {
+  margin: 0.5rem 0;
+}

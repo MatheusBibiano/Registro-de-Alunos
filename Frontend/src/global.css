@@ -1,0 +1,88 @@
+:root {
+  font-size: 10px;
+
+  --primary: #c9184a;
+  --secondary: #1d2533;
+  --secondary-dark: #161b25;
+
+  --font: #e2e7f3;
+
+  --view-color: #7b2cbf;
+  --view-light-color: rgba(123, 44, 191, 0.5);
+  --edit-color: #0677e7;
+  --edit-light-color: rgba(6, 119, 231, 0.5);
+  --delete-color: #c9184a;
+  --delete-light-color: rgba(201, 24, 74, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--secondary-dark);
+}
+
+#root {
+  flex: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* default button */
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--font);
+  text-transform: uppercase;
+  height: 5rem;
+  text-decoration: none;
+  border: 1px solid var(--font);
+  border-radius: 2px;
+  position: relative;
+  background: none;
+  transition: all 0.5s;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.Button:hover {
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+}
+
+.Button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary);
+  z-index: -1;
+  border-radius: 0 0 50% 50%;
+  height: 0%;
+  transition: all 0.5s;
+}
+
+.Button:hover::before {
+  height: 190%;
+}
+
+.Button:active {
+  filter: brightness(0.8);
+  border: solid 1px var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}

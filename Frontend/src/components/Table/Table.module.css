@@ -1,0 +1,21 @@
+.table {
+  margin: 3rem 5rem 0 5rem;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--font);
+}
+
+.table th {
+  font-size: 2rem;
+  color: var(--font);
+}
+
+.table td {
+  padding: 1rem 0;
+  border-bottom: solid 1px var(--font);
+}
+
+.table thead tr {
+  border-bottom: solid 2px var(--font);
+}

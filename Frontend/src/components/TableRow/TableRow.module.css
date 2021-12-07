@@ -1,0 +1,38 @@
+.studentImg {
+  object-fit: cover;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 25%;
+}
+
+.tableButton {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin: 0 0.2rem;
+  border: solid 1px transparent;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: 0.2s all;
+}
+
+.tableButtonIcon {
+  color: var(--font);
+}
+
+#view:hover {
+  border-color: var(--view-color) !important;
+  background-color: var(--view-light-color) !important;
+}
+
+#edit:hover {
+  border-color: var(--edit-color) !important;
+  background-color: var(--edit-light-color) !important;
+}
+
+#delete:hover {
+  border-color: var(--delete-color) !important;
+  background-color: var(--delete-light-color) !important;
+}

@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    font-size: 5rem;
+    color: var(--font);
+    margin-bottom: 5rem;
+}
