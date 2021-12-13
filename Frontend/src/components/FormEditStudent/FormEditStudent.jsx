@@ -11,12 +11,12 @@ export function FormEditStudent() {
   const navigate = useNavigate();
   const [student, setStudent] = useState([]);
 
-  const filename = useRef(String());
-  const name = useRef(String());
-  const street = useRef(String());
-  const district = useRef(String());
-  const number = useRef(Number());
-  const cep = useRef(String());
+  const filename = useRef();
+  const name = useRef();
+  const street = useRef();
+  const district = useRef();
+  const number = useRef();
+  const cep = useRef();
 
   useEffect(() => {
     axiosAPI
