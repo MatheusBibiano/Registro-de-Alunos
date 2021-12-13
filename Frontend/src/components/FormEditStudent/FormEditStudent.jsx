@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosAPI } from "../../services/axios";
 import { showUploadImage } from "../../scripts/showUploadImage";
@@ -11,14 +11,12 @@ export function FormEditStudent() {
   const navigate = useNavigate();
   const [student, setStudent] = useState([]);
 
-  const [filename, setFilename] = useState(String());
-  const [name, setName] = useState(String());
-  const [street, setStreet] = useState(String());
-  const [district, setDistrict] = useState(String());
-  const [number, setNumber] = useState();
-  const [cep, setCEP] = useState(String());
-
-  var pFilename, pName, pStreet, pDistrict, pNumber, pCep;
+  const filename = useRef(String());
+  const name = useRef(String());
+  const street = useRef(String());
+  const district = useRef(String());
+  const number = useRef(Number());
+  const cep = useRef(String());
 
   useEffect(() => {
     axiosAPI
@@ -33,12 +31,12 @@ export function FormEditStudent() {
   }, []);
 
   student.forEach((data) => {
-    pFilename = data.filename;
-    pName = data.name;
-    pStreet = data.street;
-    pDistrict = data.district;
-    pNumber = data.number;
-    pCep = data.cep;
+    filename.current = data.filename;
+    name.current = data.name;
+    street.current = data.street;
+    district.current = data.district;
+    number.current = data.number;
+    cep.current = data.cep;
   });
 
   function saveChanges(event) {
@@ -49,16 +47,24 @@ export function FormEditStudent() {
     event.preventDefault();
 
     const localId = localStorage.getItem("id");
-    const inputs = [localId, filename, name, street, district, number, cep];
+    const inputs = [
+      localId,
+      filename.current,
+      name.current,
+      street.current,
+      district.current,
+      number.current,
+      cep.current,
+    ];
 
     if (isInputValid(inputs)) {
-      axiosAPI.post("/save-changes", {
-        filename: filename.trim(),
-        name: name.trim(),
-        street: street.trim(),
-        district: district.trim(),
-        number: number,
-        cep: cep.trim(),
+      axiosAPI.put("/save-changes", {
+        filename: filename.current.trim(),
+        name: name.current.trim(),
+        street: street.current.trim(),
+        district: district.current.trim(),
+        number: number.current,
+        cep: cep.current.trim(),
         id: localId,
       });
 
@@ -87,8 +93,7 @@ export function FormEditStudent() {
               data-max-size="2097152"
               className={styles.imgSelector}
               onChange={(event) => {
-                pFilename = nanoid();
-                setFilename(pFilename);
+                filename.current = nanoid();
                 showUploadImage();
               }}
               required
@@ -108,9 +113,9 @@ export function FormEditStudent() {
             id="name"
             type="text"
             name="name"
-            placeholder={pName}
+            defaultValue={name.current}
             onChange={(event) => {
-              setName(event.target.value);
+              name.current = event.target.value;
             }}
             className={styles.typedInput}
             required
@@ -127,10 +132,10 @@ export function FormEditStudent() {
             id="street"
             type="text"
             name="street"
+            defaultValue={street.current}
             onChange={(event) => {
-              setStreet(event.target.value);
+              street.current = event.target.value;
             }}
-            placeholder={pStreet}
             className={styles.typedInput}
             required
           />
@@ -144,10 +149,10 @@ export function FormEditStudent() {
             id="district"
             type="text"
             name="district"
+            defaultValue={district.current}
             onChange={(event) => {
-              setDistrict(event.target.value);
+              district.current = event.target.value;
             }}
-            placeholder={pDistrict}
             className={styles.typedInput}
             required
           />
@@ -161,10 +166,10 @@ export function FormEditStudent() {
             id="number"
             type="number"
             name="number"
+            defaultValue={number.current}
             onChange={(event) => {
-              setNumber(event.target.value);
+              number.current = event.target.value;
             }}
-            placeholder={pNumber}
             className={styles.typedInput}
             required
           />
@@ -178,10 +183,10 @@ export function FormEditStudent() {
             id="cep"
             type="text"
             name="cep"
+            defaultValue={cep.current}
             onChange={(event) => {
-              setCEP(event.target.value);
+              cep.current = event.target.value;
             }}
-            placeholder={pCep}
             className={styles.typedInput}
             required
           />
