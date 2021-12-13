@@ -46,16 +46,18 @@ export function FormEditStudent() {
      */
     event.preventDefault();
 
-    const localId = localStorage.getItem("id");
-    const inputs = [
-      localId,
-      filename.current,
-      name.current,
-      street.current,
-      district.current,
-      number.current,
-      cep.current,
+    const inputTags = document.querySelectorAll("input");
+    let inputs = [
+      filename.current = nanoid(),
+      name.current = inputTags[1].value,
+      street.current = inputTags[2].value,
+      district.current = inputTags[3].value,
+      number.current = inputTags[4].value,
+      cep.current = inputTags[5].value,
     ];
+
+    const localId = localStorage.getItem("id");
+    inputs = [localId, ...inputs];
 
     if (isInputValid(inputs)) {
       axiosAPI.put("/save-changes", {
@@ -93,7 +95,6 @@ export function FormEditStudent() {
               data-max-size="2097152"
               className={styles.imgSelector}
               onChange={(event) => {
-                filename.current = nanoid();
                 showUploadImage();
               }}
               required
@@ -114,9 +115,6 @@ export function FormEditStudent() {
             type="text"
             name="name"
             defaultValue={name.current}
-            onChange={(event) => {
-              name.current = event.target.value;
-            }}
             className={styles.typedInput}
             required
           />
@@ -133,9 +131,6 @@ export function FormEditStudent() {
             type="text"
             name="street"
             defaultValue={street.current}
-            onChange={(event) => {
-              street.current = event.target.value;
-            }}
             className={styles.typedInput}
             required
           />
@@ -150,9 +145,6 @@ export function FormEditStudent() {
             type="text"
             name="district"
             defaultValue={district.current}
-            onChange={(event) => {
-              district.current = event.target.value;
-            }}
             className={styles.typedInput}
             required
           />
@@ -167,9 +159,6 @@ export function FormEditStudent() {
             type="number"
             name="number"
             defaultValue={number.current}
-            onChange={(event) => {
-              number.current = event.target.value;
-            }}
             className={styles.typedInput}
             required
           />
@@ -184,9 +173,6 @@ export function FormEditStudent() {
             type="text"
             name="cep"
             defaultValue={cep.current}
-            onChange={(event) => {
-              cep.current = event.target.value;
-            }}
             className={styles.typedInput}
             required
           />
