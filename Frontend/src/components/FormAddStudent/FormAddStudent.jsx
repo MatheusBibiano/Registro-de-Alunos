@@ -8,12 +8,12 @@ import { isInputValid } from "../../scripts/isInputValid";
 import styles from "./FormAddStudent.module.css";
 
 export function FormAddStudent() {
-  const [filename, setFilename] = useState(String());
-  const [name, setName] = useState(String());
-  const [street, setStreet] = useState(String());
-  const [district, setDistrict] = useState(String());
-  const [number, setNumber] = useState(Number());
-  const [cep, setCEP] = useState(String());
+  const [filename, setFilename] = useState();
+  const [name, setName] = useState();
+  const [street, setStreet] = useState();
+  const [district, setDistrict] = useState();
+  const [number, setNumber] = useState();
+  const [cep, setCEP] = useState();
   const navigate = useNavigate();
 
   function createNewStudent(event) {
