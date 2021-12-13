@@ -44,7 +44,7 @@ app.post("/add-student", (req, res) => {
   db.query(sql, data);
 });
 
-app.post("/save-changes", (req, res) => {
+app.put("/save-changes", (req, res) => {
   const data = [
     req.body.filename,
     req.body.name,
